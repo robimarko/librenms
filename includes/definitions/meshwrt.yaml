@@ -2,7 +2,7 @@ os: meshwrt
 type: wireless
 group: unix
 text: 'MeshWrt'
-icon: mesh-wrt
+icon: openwrt
 ifXmcbc: true
 ifname: true
 over:
