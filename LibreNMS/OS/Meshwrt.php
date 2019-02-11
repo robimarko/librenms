@@ -27,10 +27,12 @@ namespace LibreNMS\OS;
 
 use LibreNMS\Device\WirelessSensor;
 use LibreNMS\Interfaces\Discovery\Sensors\WirelessClientsDiscovery;
+use LibreNMS\Interfaces\Discovery\Sensors\WirelessPowerDiscovery;
 use LibreNMS\OS;
 
 class Meshwrt extends OS implements
-    WirelessClientsDiscovery
+    WirelessClientsDiscovery,
+    WirelessPowerDiscovery
 
 {
 	/**
@@ -44,6 +46,22 @@ class Meshwrt extends OS implements
 	    $oid = '.1.3.6.1.4.1.51510.11.1.101.1';
 	    return array(
 	        new WirelessSensor('clients', $this->getDeviceId(), $oid, 'meshwrt', 1, 'Clients'),
+	    );
+	}
+
+	/**
+	 * Discover wireless tx or rx power. This is in dBm. Type is power.
+	 * Returns an array of LibreNMS\Device\Sensor objects that have been discovered
+	 *
+	 * @return array
+	 */
+	public function discoverWirelessPower()
+	{
+	    $tx_oid = '.1.3.6.1.4.1.51510.11.2.101.1';
+	    $rx_oid = '.1.3.6.1.4.1.51510.11.3.101.1';
+	    return array(
+	        new WirelessSensor('power', $this->getDeviceId(), $tx_oid, 'meshwrt-tx', 1, 'Tx Power'),
+	        new WirelessSensor('power', $this->getDeviceId(), $rx_oid, 'meshwrt-rx', 1, 'Signal Level'),
 	    );
 	}
 }
