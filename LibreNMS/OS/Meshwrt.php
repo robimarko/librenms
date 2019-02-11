@@ -26,29 +26,11 @@
 namespace LibreNMS\OS;
 
 use LibreNMS\Device\WirelessSensor;
-use LibreNMS\Interfaces\Discovery\Sensors\WirelessCapacityDiscovery;
-use LibreNMS\Interfaces\Discovery\Sensors\WirelessCcqDiscovery;
 use LibreNMS\Interfaces\Discovery\Sensors\WirelessClientsDiscovery;
-use LibreNMS\Interfaces\Discovery\Sensors\WirelessDistanceDiscovery;
-use LibreNMS\Interfaces\Discovery\Sensors\WirelessFrequencyDiscovery;
-use LibreNMS\Interfaces\Discovery\Sensors\WirelessNoiseFloorDiscovery;
-use LibreNMS\Interfaces\Discovery\Sensors\WirelessPowerDiscovery;
-use LibreNMS\Interfaces\Discovery\Sensors\WirelessQualityDiscovery;
-use LibreNMS\Interfaces\Discovery\Sensors\WirelessRateDiscovery;
-use LibreNMS\Interfaces\Discovery\Sensors\WirelessRssiDiscovery;
 use LibreNMS\OS;
 
 class Meshwrt extends OS implements
-    WirelessCapacityDiscovery,
-    WirelessCcqDiscovery,
-    WirelessClientsDiscovery,
-    WirelessDistanceDiscovery,
-    WirelessFrequencyDiscovery,
-    WirelessNoiseFloorDiscovery,
-    WirelessPowerDiscovery,
-    WirelessQualityDiscovery,
-    WirelessRateDiscovery,
-    WirelessRssiDiscovery
+    WirelessClientsDiscovery
 
 {
 	/**
