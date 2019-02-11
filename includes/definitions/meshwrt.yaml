@@ -1,0 +1,26 @@
+os: meshwrt
+type: wireless
+group: unix
+text: 'MeshWrt'
+icon: mesh-wrt
+ifXmcbc: true
+ifname: true
+over:
+    - { graph: device_processor, text: 'Processor Usage' }
+    - { graph: device_ucd_memory, text: 'Memory Usage' }
+    - { graph: device_storage, text: 'Storage Usage' }
+discovery_modules:
+    applications: true
+processor_stacked: true
+register_mibs:
+    rxCounter: GANDI-MIB
+    txCounter: GANDI-MIB
+    dropCounter: GANDI-MIB
+    acldropCounter: GANDI-MIB
+    ratedropCounter: GANDI-MIB
+    KNIrxCounter: GANDI-MIB
+    KNItxCounter: GANDI-MIB
+    KNIdropCounter: GANDI-MIB
+discovery:
+    - sysObjectID: .1.3.6.1.4.1.8072.3.2.10
+    - sysDescr_regex: '/^MeshWrt/'
