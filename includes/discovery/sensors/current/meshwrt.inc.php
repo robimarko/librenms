@@ -32,5 +32,5 @@ if ($current > 0) {
 $oid = '.1.3.6.1.4.1.51510.13.2.101.1';
 $current = (snmp_get($device, $oid, '-Oqv') / $divisor);
 if ($current > 0) {
-    discover_sensor($valid['sensor'], 'current', $device, $oid, 1, 'meshwrt', 'POE Output Current', 1000, 1, null, null, null, null, $current);
+    discover_sensor($valid['sensor'], 'current', $device, $oid, 2, 'meshwrt', 'POE Output Current', 1000, 1, null, null, null, null, $current);
 }
