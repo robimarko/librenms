@@ -57,15 +57,31 @@ class Meshwrt extends OS implements
 	 */
 	public function discoverWirelessPower()
 	{
-	    $tx_oid = '.1.3.6.1.4.1.51510.11.2.101.1';
-	    $tx2_oid = '.1.3.6.1.4.1.51510.11.2.101.2';
-	    $rx_oid = '.1.3.6.1.4.1.51510.11.3.101.1';
-	    $rx2_oid = '.1.3.6.1.4.1.51510.11.3.101.1';
+	    $tx_oid_5ghz = '.1.3.6.1.4.1.51510.11.2.101.1';
+	    $tx_oid_2ghz = '.1.3.6.1.4.1.51510.11.2.101.2';
+	    $rx_oid_5ghz = '.1.3.6.1.4.1.51510.11.3.101.1';
+	    $rx_oid_2ghz = '.1.3.6.1.4.1.51510.11.3.101.1';
 	    return array(
-	        new WirelessSensor('power', $this->getDeviceId(), $tx_oid, 'meshwrt-tx', 1, '5 GHz Tx Power'),
-	        new WirelessSensor('power', $this->getDeviceId(), $tx2_oid, 'meshwrt-tx-2', 1, '2.4 GHz Tx Power'),
-	        new WirelessSensor('power', $this->getDeviceId(), $rx_oid, 'meshwrt-rx', 1, '5 GHz Signal Level'),
-	        new WirelessSensor('power', $this->getDeviceId(), $rx2_oid, 'meshwrt-rx-2', 1, '2.4 GHz Signal Level'),
+	        new WirelessSensor('power', $this->getDeviceId(), $tx_oid_5ghz, 'meshwrt-tx-5ghz', 1, '5 GHz Tx Power'),
+	        new WirelessSensor('power', $this->getDeviceId(), $tx_oid_2ghz, 'meshwrt-tx-2ghz', 1, '2.4 GHz Tx Power'),
+	        new WirelessSensor('power', $this->getDeviceId(), $rx_oid_5ghz, 'meshwrt-rx-5ghz', 1, '5 GHz Signal Level'),
+	        new WirelessSensor('power', $this->getDeviceId(), $rx_oid_2ghz, 'meshwrt-rx-2ghz', 1, '2.4 GHz Signal Level'),
+	    );
+	}
+
+	/**
+	 * Discover wireless frequency.  This is in Hz. Type is frequency.
+	 * Returns an array of LibreNMS\Device\Sensor objects that have been discovered
+	 *
+	 * @return array Sensors
+	 */
+	public function discoverWirelessFrequency()
+	{
+	    $oid_5ghz = '.1.3.6.1.4.1.51510.11.4.101.1';
+	    $oid_2ghz = '.1.3.6.1.4.1.51510.11.4.101.2';
+	    return array(
+	        new WirelessSensor('frequency', $this->getDeviceId(), $oid_5ghz, 'meshwrt-5ghz', 1, '5 GHz Radio Frequency'),
+	        new WirelessSensor('frequency', $this->getDeviceId(), $oid_2ghz, 'meshwrt-2ghz', 1, '2.4 GHz Radio Frequency'),
 	    );
 	}
 }
