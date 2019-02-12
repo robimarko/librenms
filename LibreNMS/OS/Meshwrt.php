@@ -28,11 +28,13 @@ namespace LibreNMS\OS;
 use LibreNMS\Device\WirelessSensor;
 use LibreNMS\Interfaces\Discovery\Sensors\WirelessClientsDiscovery;
 use LibreNMS\Interfaces\Discovery\Sensors\WirelessPowerDiscovery;
+use LibreNMS\Interfaces\Discovery\Sensors\WirelessFrequencyDiscovery;
 use LibreNMS\OS;
 
 class Meshwrt extends OS implements
     WirelessClientsDiscovery,
-    WirelessPowerDiscovery
+    WirelessPowerDiscovery,
+    WirelessFrequencyDiscovery
 
 {
 	/**
