@@ -62,10 +62,10 @@ class Meshwrt extends OS implements
 	    $rx_oid = '.1.3.6.1.4.1.51510.11.3.101.1';
 	    $rx2_oid = '.1.3.6.1.4.1.51510.11.3.101.1';
 	    return array(
-	        new WirelessSensor('power', $this->getDeviceId(), $tx_oid, 'meshwrt-tx', 1, '2.4 GHz Tx Power'),
-	        new WirelessSensor('power', $this->getDeviceId(), $tx2_oid, 'meshwrt-tx-2', 1, '5 GHz Tx Power'),
-	        new WirelessSensor('power', $this->getDeviceId(), $rx_oid, 'meshwrt-rx', 1, '2.4 GHzSignal Level'),
-	        new WirelessSensor('power', $this->getDeviceId(), $rx2_oid, 'meshwrt-rx-2', 1, '5 GHz Signal Level'),
+	        new WirelessSensor('power', $this->getDeviceId(), $tx_oid, 'meshwrt-tx', 1, '5 GHz Tx Power'),
+	        new WirelessSensor('power', $this->getDeviceId(), $tx2_oid, 'meshwrt-tx-2', 1, '2.4 GHz Tx Power'),
+	        new WirelessSensor('power', $this->getDeviceId(), $rx_oid, 'meshwrt-rx', 1, '5 GHz Signal Level'),
+	        new WirelessSensor('power', $this->getDeviceId(), $rx2_oid, 'meshwrt-rx-2', 1, '2.4 GHz Signal Level'),
 	    );
 	}
 }
