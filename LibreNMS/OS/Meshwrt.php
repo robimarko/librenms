@@ -57,11 +57,12 @@ class Meshwrt extends OS implements
 	 */
 	public function discoverWirelessPower()
 	{
-	    $tx_oid = '.1.3.6.1.4.1.51510.11.2.101.';
+	    $tx_oid = '.1.3.6.1.4.1.51510.11.2.101.1';
+	    $tx2_oid = '.1.3.6.1.4.1.51510.11.2.101.1';
 	    $rx_oid = '.1.3.6.1.4.1.51510.11.3.101.1';
 	    return array(
 	        new WirelessSensor('power', $this->getDeviceId(), $tx_oid, 'meshwrt-tx', 1, 'Tx Power'),
-	        new WirelessSensor('power', $this->getDeviceId(), $tx_oid, 'meshwrt-tx-2', 2, 'Tx Power'),
+	        new WirelessSensor('power', $this->getDeviceId(), $tx2_oid, 'meshwrt-tx-2', 1, 'Tx Power'),
 	        new WirelessSensor('power', $this->getDeviceId(), $rx_oid, 'meshwrt-rx', 1, 'Signal Level'),
 	    );
 	}
