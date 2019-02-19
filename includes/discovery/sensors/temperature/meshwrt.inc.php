@@ -25,4 +25,6 @@
 
 $oid = '.1.3.6.1.4.1.51510.14.1.101.1';
 $current = (snmp_get($device, $oid, '-Oqv') / $divisor);
-discover_sensor($valid['sensor'], 'temperature', $device, $oid, 1, 'meshwrt', 'Board temperature', 1000, 1, 0, -5, 40, 50, $current);
+if ($current > 0) {
+	discover_sensor($valid['sensor'], 'temperature', $device, $oid, 1, 'meshwrt', 'Board temperature', 1000, 1, 0, -5, 40, 50, $current);
+}

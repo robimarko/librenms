@@ -25,4 +25,6 @@
 
 $oid = '.1.3.6.1.4.1.51510.14.2.101.1';
 $current = (snmp_get($device, $oid, '-Oqv') / $divisor);
-discover_sensor($valid['sensor'], 'pressure', $device, $oid, 1, 'meshwrt', 'Air pressure', 1, 1, 101.2, 101, 101.6, 102, $current);
+if ($current > 0) {
+	discover_sensor($valid['sensor'], 'pressure', $device, $oid, 1, 'meshwrt', 'Air pressure', 1, 1, 101.2, 101, 101.6, 102, $current);
+}
