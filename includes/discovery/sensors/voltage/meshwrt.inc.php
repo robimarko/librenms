@@ -25,7 +25,9 @@
 
 $oid = '.1.3.6.1.4.1.51510.12.1.101.1';
 $current = (snmp_get($device, $oid, '-Oqv') / $divisor);
-discover_sensor($valid['sensor'], 'voltage', $device, $oid, 1, 'meshwrt', 'Input voltage', 1000, 1, 9, 8, 26, 28, $current);
+if ($current > 0) {
+	discover_sensor($valid['sensor'], 'voltage', $device, $oid, 1, 'meshwrt', 'Input voltage', 1000, 1, 9, 8, 26, 28, $current);
+}
 
 $oid = '.1.3.6.1.4.1.51510.13.1.101.1';
 $current = (snmp_get($device, $oid, '-Oqv') / $divisor);
