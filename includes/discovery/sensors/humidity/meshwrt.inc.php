@@ -26,5 +26,11 @@
 $oid = '.1.3.6.1.4.1.51510.14.3.101.1';
 $current = (snmp_get($device, $oid, '-Oqv') / $divisor);
 if ($current > 0) {
-	discover_sensor($valid['sensor'], 'humidity', $device, $oid, 1, 'meshwrt', 'Realative Humidity', 100, 1, null, null, null, null, $current);
+	discover_sensor($valid['sensor'], 'humidity', $device, $oid, 1, 'meshwrt', 'Relative Humidity', 100, 1, null, null, null, null, $current);
+}
+
+$oid = '.1.3.6.1.4.1.51510.14.3.101.2';
+$current = (snmp_get($device, $oid, '-Oqv') / $divisor);
+if ($current > 0) {
+	discover_sensor($valid['sensor'], 'humidity', $device, $oid, 2, 'meshwrt', 'Outside relative Humidity', 100, 1, null, null, null, null, $current);
 }
