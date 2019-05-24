@@ -34,3 +34,9 @@ $current = (snmp_get($device, $oid, '-Oqv') / $divisor);
 if ($current > 0) {
 	discover_sensor($valid['sensor'], 'temperature', $device, $oid, 2, 'meshwrt', 'Outside temperature', 1000, 1, 0, -5, 40, 50, $current);
 }
+
+$oid = '.1.3.6.1.4.1.51510.15.3.101.1';
+$current = (snmp_get($device, $oid, '-Oqv') / $divisor);
+if ($current > 0) {
+	discover_sensor($valid['sensor'], 'temperature', $device, $oid, 3, 'meshwrt', 'BMS temperature', 1, 1, 0, -5, 40, 50, $current);
+}

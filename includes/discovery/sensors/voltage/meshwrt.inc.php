@@ -32,5 +32,11 @@ if ($current > 0) {
 $oid = '.1.3.6.1.4.1.51510.13.1.101.1';
 $current = (snmp_get($device, $oid, '-Oqv') / $divisor);
 if ($current > 0) {
-	discover_sensor($valid['sensor'], 'voltage', $device, $oid, 2, 'meshwrt', ' POE Output voltage', 1000, 1, 10.5, 9, 26, 28, $current);
+	discover_sensor($valid['sensor'], 'voltage', $device, $oid, 2, 'meshwrt', 'POE Output voltage', 1000, 1, 10.5, 9, 26, 28, $current);
+}
+
+$oid = '.1.3.6.1.4.1.51510.15.1.101.1';
+$current = (snmp_get($device, $oid, '-Oqv') / $divisor);
+if ($current > 0) {
+	discover_sensor($valid['sensor'], 'voltage', $device, $oid, 3, 'meshwrt', 'BMS Battery pack voltage', 1000, 1, 10.5, 9, 12.7, 12.8, $current);
 }

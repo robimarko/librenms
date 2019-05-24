@@ -26,11 +26,17 @@
 $oid = '.1.3.6.1.4.1.51510.12.2.101.1';
 $current = (snmp_get($device, $oid, '-Oqv') / $divisor);
 if ($current > 0) {
-    discover_sensor($valid['sensor'], 'current', $device, $oid, 1, 'meshwrt', ' Input Current', 1000, 1, 0.1, 0.01, 1, 1.5, $current);
+    discover_sensor($valid['sensor'], 'current', $device, $oid, 1, 'meshwrt', 'Input Current', 1000, 1, 0.1, 0.01, 1, 1.5, $current);
 }
 
 $oid = '.1.3.6.1.4.1.51510.13.2.101.1';
 $current = (snmp_get($device, $oid, '-Oqv') / $divisor);
 if ($current > 0) {
     discover_sensor($valid['sensor'], 'current', $device, $oid, 2, 'meshwrt', 'POE Output Current', 1000, 1, 0.1, 0.01, 0.5, 0.75, $current);
+}
+
+$oid = '.1.3.6.1.4.1.51510.15.2.101.1';
+$current = (snmp_get($device, $oid, '-Oqv') / $divisor);
+if ($current > 0) {
+    discover_sensor($valid['sensor'], 'current', $device, $oid, 3, 'meshwrt', 'BMS Current', 1000, 1, 0.1, 0.01, 2.5, 3, $current);
 }
