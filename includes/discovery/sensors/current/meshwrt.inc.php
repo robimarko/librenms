@@ -37,6 +37,6 @@ if ($current > 0) {
 
 $oid = '.1.3.6.1.4.1.51510.15.2.101.1';
 $current = (snmp_get($device, $oid, '-Oqv') / $divisor);
-if ($current > 0) {
+if ($current != 0) {
     discover_sensor($valid['sensor'], 'current', $device, $oid, 3, 'meshwrt', 'BMS Current', 1000, 1, 0.1, 0.01, 2.5, 3, $current);
 }
